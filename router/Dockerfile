@@ -1,7 +1,5 @@
+# Use Alpine Linux as the base image
 FROM python:3.9-alpine
-
-#RUN apk update && apk add bash curl git
-#RUN curl --location https://dart.dev/getSdk | bash
 
 # Set the working directory
 WORKDIR /app
@@ -11,6 +9,7 @@ COPY . /app
 
 # Install Flask and other dependencies
 RUN pip install flask
+RUN pip install requests
 
-# Run the Flask application
+# Start the Flask application
 CMD ["python", "app.py"]
